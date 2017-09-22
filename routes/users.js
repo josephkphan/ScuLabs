@@ -2,11 +2,8 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var passport = require('passport');
 var User = require('../models/user');
-var configAuth = require('../config/auth');
 
 // Register
 router.get('/register', function(req, res){
@@ -35,18 +32,14 @@ failureRedirect: '/login' }));
 router.post('/register', function(req, res){
 	var name = req.body.name;
 	var email = req.body.email;
-	var username = req.body.username;
 	var password = req.body.password;
 	var password2 = req.body.password2;
-	var mirrorID = req.body.mirrorID;
 
 	// Validation - Checks if user filled out the form correctly
 	req.checkBody('name', 'Name is required').notEmpty();
 	req.checkBody('email', 'Email is required').notEmpty();
-	req.checkBody('username', 'Username is required').notEmpty();
 	req.checkBody('password', 'Password is required').notEmpty();
 	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
-	req.checkBody('mirrorID', 'MirrorID is required').notEmpty();
 
 	var errors = req.validationErrors();
 
@@ -59,11 +52,10 @@ router.post('/register', function(req, res){
 		// account created successful! creating new user data structure
 		var newUser = new User({
 			// General Information
-			username: username,
+			username: email,
 			password: password,
 			email: email,
-			name: name,
-			mirrorID: mirrorID
+			name: name
 		});
 
 		User.createUser(newUser, function(err, user){

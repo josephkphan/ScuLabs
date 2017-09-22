@@ -9,34 +9,7 @@ var UserSchema = mongoose.Schema({
     password: String,
     email: String,
     name: String,
-    mirrorID: String,
-    about_me: String,
-
-    // Api Keys
-    google_distance_matrix_key: String,
-    google_geocode_key: String,
-    dark_sky_weather_key: String,
-
-    // Mirror Widget Information
-    to_do_list: String,
-    stocks: String,
-
-    maps_origin_street_address: String,
-    maps_origin_city_address: String,
-    maps_origin_state_address: String,
-    maps_origin_country_address: String,
-
-    maps_destination_street_address: String,
-    maps_destination_city_address: String,
-    maps_destination_state_address: String,
-
-    maps_settings_avoid_tolls: Boolean,
-    maps_settings_mode: String,
-    maps_settings_transit_mode: String,
-
-    // Mirror Settings
-    color: String,
-    fontSize: String
+    about_me: String
 
 });
 
@@ -52,33 +25,8 @@ module.exports.createUser = function (newUser, callback) {
             newUser.localEnabled = true;
 
             //Setting the default values for every user
-            newUser.about_me = 'I really love using this mirror every day!!';
+            newUser.about_me = 'I live for my students... :)';
 
-            // API Keys
-            newUser.google_distance_matrix_key = 'google_distance_matrix_key';
-            newUser.google_geocode_key = 'google_geocode_key';
-            newUser.dark_sky_weather_key = 'dark_sky_weather_key';
-
-            // Mirror Widget Information
-            newUser.to_do_list = '';
-            newUser.stocks = '';
-
-            newUser.maps_origin_street_address = 'street';
-            newUser.maps_origin_city_address = 'city';
-            newUser.maps_origin_state_address = 'state initials';
-            newUser.maps_origin_country_address = 'country initials';
-
-            newUser.maps_destination_street_address = 'street';
-            newUser.maps_destination_city_address = 'city';
-            newUser.maps_destination_state_address = 'state initials';
-
-            newUser.maps_settings_avoid_tolls = false;
-            newUser.maps_settings_mode = 'driving'; // driving; walking; bicycling; transit
-            newUser.maps_settings_transit_mode = 'bus'; // bus; subway; train; tram; rail
-            //TODO Does not currently have avoid=highways - users cannot select local only basically
-
-            newUser.color = 'yellow';
-            newUser.fontSize = 'medium';
 
             newUser.save(callback);
         });
