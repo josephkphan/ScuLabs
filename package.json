@@ -21,6 +21,7 @@
     "express-validator": "*",
     "mongodb": "*",
     "mongoose": "*",
+    "nodemon": "^1.12.1",
     "passport": "*",
     "passport-facebook": "^2.1.1",
     "passport-google-oauth": "^1.0.0",
