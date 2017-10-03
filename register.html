@@ -109,8 +109,6 @@
             color: #333333;
             text-decoration: none;
         }
-        body { padding: 2em; }
-
 
     </style>
 
@@ -128,19 +126,19 @@
 <!-- Form Module-->
 <div class="module form-module">
 
-    <div class="form"> </div>
+    <div class="form"></div>
     <!--DON'T DELETE THE DIV ABOVE. IS CRITICAL TO THIS PAGE-->
     <div class="form">
-        <h2>Sign In</h2>
-        <form method="post" action="/users/login">
-            <input name="username" type="text" placeholder="Scu Username"/>
+        <h2>Create an account</h2>
+        <form method="post" action="/users/register">
+            <input name="name" type="text" placeholder="Name"/>
+            <input name="email" type="email" placeholder="Email Address"/>
             <input name="password" type="password" placeholder="Password"/>
-            <button class="button" type=submit">Login</button>
+            <input name="password2" type="password" placeholder="Retype Password"/>
+            <button class="button">Register</button>
         </form>
-        <br>
     </div>
-    <div class="cta"><a href="register">Forgot your password?</a></div>
-    <div class="cta"><a href="register">Register Here</a></div>
+    <div class="cta"><a href="login.html">Already have an account?</a></div>
 
 </div>
 
