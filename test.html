@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Scu Labs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap core CSS     -->
+    <link href="bootstrap.min.css" rel="stylesheet" />
+
+  </head>
+  <!doctype html>
+  <html>
+    <head>
+        <title>Timetable</title>
+        <style type="text/css">
+
+        table
+        {
+          margin-left: 5%;
+          clear: boht
+        }
+
+        body
+        {
+            font-family: arial;
+        }
+
+        th,td
+        {
+            margin: 0;
+            text-align: center;
+            border-collapse: collapse;
+            outline: 1px solid #e3e3e3;
+        }
+
+        td
+        {
+            padding: 0px 0px;
+        }
+
+        th
+        {
+            background: #9a2035;
+            color: white;
+            padding: 0px 0px 75px 0px;
+        }
+
+        td:hover
+        {
+            cursor: pointer;
+            background: #d1465a;
+            color: white;
+        }
+
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+          }
+
+          li {
+              float: left;
+          }
+
+          li a {
+              display: block;
+              color: white;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+          }
+
+          li a:hover {
+              background-color: #111;
+          }
+        </style>
+
+    </head>
+    <h3>Scu Labs : TA Contact Sheet</h3>
+    <ul>
+      <li><a href="news.asp">Other's Availability</a></li>
+      <li><a href="contact.asp">My Availability</a></li>
+      <li><a href="about.asp">Logout</a></li>
+    </ul>
+    <body>
+      <br>
+        <table width="90%" align="center" >
+        <div id="head_nav">
+        <tr>
+            <th>Time</th>
+            <th>Mon</th>
+            <th>Tues</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+        </tr>
+    </div>
+
+        <tr>
+            <th>09:15 - 12:00</th>
+                <td onclick="myFunction()">Monday<br>Morning Lab</td>
+                <td onclick="myFunction()">Tuesday<br>Morning Lab</td>
+                <td onclick="myFunction()">Wednesday<br>Morning Lab</td>
+                <td onclick="myFunction()">Thursday<br>Morning Lab</td>
+                <td onclick="myFunction()">Friday<br>Morning Lab</td>
+                <td onclick="myFunction()">Saturday<br>Morning Lab</td>
+            </div>
+        </tr>
+
+        <tr>
+            <th>02:15 - 5:00</td>
+                <td onclick="myFunction()">Monday<br>Afternoon Lab</td>
+                <td onclick="myFunction()">Tuesday<br>Afternoon Lab</td>
+                <td onclick="myFunction()">Wednesday<br>Afternoon Lab</td>
+                <td onclick="myFunction()">Thursday<br>Afternoon Lab</td>
+                <td onclick="myFunction()">Friday<br>Afternoon Lab</td>
+                <td></td>
+            </div>
+        </tr>
+
+        <tr>
+            <th>05:15 - 08:00</td>
+
+                <td onclick="myFunction()">Monday<br>Night Lab</td>
+                <td onclick="myFunction()">Tuesday<br>Night Lab</td>
+                <td onclick="myFunction()">Wednesday<br>Night Lab</td>
+                <td onclick="myFunction()">Thursday<br>Night Lab</td>
+                <td onclick="myFunction()">Friday<br>Night Lab</td>
+                <td></td>
+
+            </div>
+        </tr>
+
+    </table>
+
+
+  </body>
+
+<script>
+function myFunction() {
+    alert("Available TAs: \n Carl Maggio -- cmaggio@scu.edu");
+}
+</script>
+</html>
