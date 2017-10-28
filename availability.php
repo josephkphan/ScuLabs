@@ -11,6 +11,7 @@ $db_name = "sdb_jphan1";
     <meta charset="utf-8">
     <title>Scu Labs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </head>
     <head>
         <title>Timetable</title>
@@ -171,15 +172,28 @@ $db_name = "sdb_jphan1";
 </body>
 
 <script>
+function saveData(email, lab_name, new_availability){
+      $.ajax({
+        type: "POST",
+        url: "update_user_availability.php",
+        data: { email:email, lab_name: lab_name, availability: new_availability },
+        success:function( msg ) {
+        }
+       });
+  }
 
 function myFunction(lab_name) {
   var current_color = document.getElementById(lab_name).style.backgroundColor
-  if (current_color === "rgb(139, 218, 97)")
+  if (current_color === "rgb(139, 218, 97)"){
     document.getElementById(lab_name).style.backgroundColor = "rgb(201, 81, 55)"
-  else
+    saveData(urlParams['user'],lab_name,'Not Available');
+  }else{
     document.getElementById(lab_name).style.backgroundColor = "rgb(139, 218, 97)"
-
+    saveData(urlParams['user'],lab_name,'Available');
+  }
 }
+
+
 
 document.getElementById("MonLab1").addEventListener("click", function(){
   myFunction("MonLab1")
