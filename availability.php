@@ -77,9 +77,11 @@ $db_name = "sdb_jphan1";
         li a:hover {
             color: #1A72CB;
         }
+
       </style>
 
   </head>
+
 
   <?php
 
@@ -106,16 +108,19 @@ $db_name = "sdb_jphan1";
 
   <h3>Scu Labs : TA Contact Sheet</h3>
   <ul>
-    <li><a id="home_href" href="home.php?user=" style="color: #19C5D3">Other's Availability</a></li>
-    <li><a id="avail_href" href="availability.php?user=">My Availability</a></li>
+    <li><a id="home_href" href="home.php?user=jphan@scu.edu">Other's Availability</a></li>
+    <li><a id="avail_href" href="availability.php?user=jphan@scu.edu" style="color: #19C5D3">My Availability</a></li>
     <li><a href="login.php">Logout</a></li>
   </ul>
 
   <body>
-    <p> Click on the time slot to find available TAs</p>
+    <p> Click on the time slot to change your availability
+        <br> Green : Available
+        <br> Red   : Unavailable
+    </p>
     <br>
       <table width="90%" align="center" >
-      <div id="head_nav">
+      <div id="head_nav" class="green">
       <tr>
           <th>Time</th>
           <th>Mon</th>
@@ -162,32 +167,18 @@ $db_name = "sdb_jphan1";
 
   </table>
 
-  <br><br>
-  <h4>Available TA's:</h4>
-  <p id="available_ta_text" ></p>
-  <h4>Email List:</h4>
-  <p id="available_ta_email_list" ></p>
-
 
 </body>
 
 <script>
 
 function myFunction(lab_name) {
-  console.log('Here! Lab Name:',lab_name )
-  var ar = <?php echo json_encode($table) ?>;
-  var email_list = ''
-  var string = ''
-  for (var i in ar){
-    if (ar[i][lab_name] == 'Available' && ar[i]['Type'] == 'TA'){
-      string = string +  ar[i]['Name'] + ' -- ' + ar[i]['Email']
-      string += '<br>'
-      email_list = email_list + ar[i]['Email'] + ', '
-    }
-  }
-  console.log(ar);
-   document.getElementById("available_ta_text").innerHTML = string;
-   document.getElementById("available_ta_email_list").innerHTML = email_list;
+  var current_color = document.getElementById(lab_name).style.backgroundColor
+  if (current_color === "rgb(139, 218, 97)")
+    document.getElementById(lab_name).style.backgroundColor = "rgb(201, 81, 55)"
+  else
+    document.getElementById(lab_name).style.backgroundColor = "rgb(139, 218, 97)"
+
 }
 
 document.getElementById("MonLab1").addEventListener("click", function(){
@@ -248,6 +239,8 @@ document.getElementById("FriLab3").addEventListener("click", function(){
 <script>
 var urlParams;
 (window.onpopstate = function () {
+
+
     var match,
         pl     = /\+/g,
         search = /([^&=]+)=?([^&]*)/g,
@@ -262,11 +255,28 @@ var urlParams;
     document.getElementById("home_href").href = "home.php?user=" + urlParams['user']
     document.getElementById("avail_href").href = "availability.php?user="+ urlParams['user']
 
+    var ar = <?php echo json_encode($table) ?>;
+    console.log(ar)
+    var counter = 0;
+    for (var i in ar){
+      console.log(ar[counter]['Email'],urlParams['user'] )
+      if (ar[counter]['Email'] == urlParams['user'] && ar[counter]['Type'] == 'TA'){
+        var current_user = ar[counter];
+        var lab_sections = ['MonLab1', 'MonLab2', 'MonLab3', 'TueLab1', 'TueLab2', 'TueLab3', 'WedLab1', 'WedLab2', 'WedLab3', 'ThuLab1', 'ThuLab2', 'ThuLab3', 'FriLab1', 'FriLab2', 'FriLab3']
+        lab_sections.forEach(function(lab_name) {
+          if(current_user[lab_name] == "Available")
+              document.getElementById(lab_name).style.backgroundColor = "rgb(139, 218, 97)";
+          else
+              document.getElementById(lab_name).style.backgroundColor = "rgb(201, 81, 55)";
+        });
+
+      }
+      counter ++;
+    }
 
 })();
 
 </script>
-
 
 
 
