@@ -87,22 +87,22 @@ $db_name = "sdb_jphan1";
 
 
   if ($conn->connect_error) {
-	        die("Connection failed: " . $conn->connect_error);
-			  }
+      die("Connection failed: " . $conn->connect_error);
+  }
 
 
-    $sql = "SELECT * FROM Users";
-    $result = $conn->query($sql);
-	  $table = array();
-	  if ($result->num_rows > 0) {
-		        while($row = $result->fetch_assoc()) {
-					        array_push($table,$row);
-							      }
-				  }
+  $sql = "SELECT * FROM Users";
+  $result = $conn->query($sql);
+  $table = array();
+  if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        array_push($table,$row);
+      }
+  }
 
-	    mysqli_close($conn);
+  mysqli_close($conn);
 
-	    ?>
+  ?>
 
   <h3>Scu Labs : TA Contact Sheet</h3>
   <ul>
@@ -163,7 +163,7 @@ $db_name = "sdb_jphan1";
 
   </table>
 
-<br><br>
+  <br><br>
   <h4>Available TA's:</h4>
   <p id="available_ta_text" ></p>
   <h4>Email List:</h4>
@@ -192,53 +192,53 @@ function myFunction(lab_name) {
 }
 
 document.getElementById("MonLab1").addEventListener("click", function(){
-	  myFunction("MonLab1")
+  myFunction("MonLab1")
 });
 document.getElementById("MonLab2").addEventListener("click", function(){
-	  myFunction("MonLab2")
+  myFunction("MonLab2")
 });
 document.getElementById("MonLab3").addEventListener("click", function(){
-	  myFunction("MonLab3")
+  myFunction("MonLab3")
 });
 
 document.getElementById("TueLab1").addEventListener("click", function(){
-	  myFunction("TueLab1")
+  myFunction("TueLab1")
 });
 document.getElementById("TueLab2").addEventListener("click", function(){
-	  myFunction("TueLab2")
+  myFunction("TueLab2")
 });
 document.getElementById("TueLab3").addEventListener("click", function(){
-	  myFunction("TueLab3")
+  myFunction("TueLab3")
 });
 
 document.getElementById("WedLab1").addEventListener("click", function(){
-	  myFunction("WedLab1")
+  myFunction("WedLab1")
 });
 document.getElementById("WedLab2").addEventListener("click", function(){
-	  myFunction("WedLab2")
+  myFunction("WedLab2")
 });
 document.getElementById("WedLab3").addEventListener("click", function(){
-	  myFunction("WedLab3")
+  myFunction("WedLab3")
 });
 
 document.getElementById("ThuLab1").addEventListener("click", function(){
-	  myFunction("ThuLab1")
+  myFunction("ThuLab1")
 });
 document.getElementById("ThuLab2").addEventListener("click", function(){
-	  myFunction("ThuLab2")
+  myFunction("ThuLab2")
 });
 document.getElementById("ThuLab3").addEventListener("click", function(){
-	  myFunction("ThuLab3")
+  myFunction("ThuLab3")
 });
 
 document.getElementById("FriLab1").addEventListener("click", function(){
-	  myFunction("FriLab1")
+  myFunction("FriLab1")
 });
 document.getElementById("FriLab2").addEventListener("click", function(){
-	  myFunction("FriLab2")
+  myFunction("FriLab2")
 });
 document.getElementById("FriLab3").addEventListener("click", function(){
-	  myFunction("FriLab3")
+  myFunction("FriLab3")
 });
 
 

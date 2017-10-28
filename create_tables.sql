@@ -1,0 +1,31 @@
+CREATE TABLE User (
+    Email varchar(255)  PRIMARY KEY,
+    Pass varchar(255) NOT NULL,
+    Name varchar(255),
+    Type varchar(255),
+    MonLab1 varchar(255),
+    MonLab2 varchar(255),
+    MonLab3 varchar(255),
+    TueLab1 varchar(255),
+    TueLab2 varchar(255),
+    TueLab3 varchar(255),
+    WedLab1 varchar(255),
+    WedLab2 varchar(255),
+    WedLab3 varchar(255),
+    ThuLab1 varchar(255),
+    ThuLab2 varchar(255),
+    ThuLab3 varchar(255),
+    FriLab1 varchar(255),
+    FriLab2 varchar(255),
+    FriLab3 varchar(255)
+);
+
+
+INSERT INTO  User(Email, Pass, Name, Type, MonLab1, MonLab2, MonLab3, TueLab1, TueLab2, TueLab3, WedLab1, WedLab2, WedLab3, ThuLab1, ThuLab2, ThuLab3, FriLab1, FriLab2, FriLab3)
+VALUES (2,'jphan123@scu.edu', 'Joey Phan', 'TA', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available' );
+
+INSERT INTO  User(Email, Pass, Name, Type, MonLab1, MonLab2, MonLab3, TueLab1, TueLab2, TueLab3, WedLab1, WedLab2, WedLab3, ThuLab1, ThuLab2, ThuLab3, FriLab1, FriLab2, FriLab3)
+VALUES (2,'cmaggio123@scu.edu', 'Carl Maggio', 'TA', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available' );
+
+INSERT INTO  User(Email, Pass, Name, Type, MonLab1, MonLab2, MonLab3, TueLab1, TueLab2, TueLab3, WedLab1, WedLab2, WedLab3, ThuLab1, ThuLab2, ThuLab3, FriLab1, FriLab2, FriLab3)
+VALUES (2,'kduddi123@scu.edu', 'Kirti Duddi', 'TA', 'Available', 'Not Available', 'Not Available', 'Not Available', 'Not Available', 'Not Available', 'Not Available', 'Not Available', 'Not Available', 'Not Available', 'Not Available', 'Not Available', 'Not Available', 'Not Available', 'Not Available' );
