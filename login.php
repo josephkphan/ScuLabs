@@ -135,7 +135,7 @@
         <form action="check_credentials.php" method="post">
             <input name="uname" type="text" placeholder="Scu Username"/>
             <input name="pass" type="password" placeholder="Password"/>
-            <button class="button" type=submit">Login</button>
+            <button class="button" type="submit">Login</button>
         </form>
         <br>
     </div>
