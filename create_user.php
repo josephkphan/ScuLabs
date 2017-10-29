@@ -29,7 +29,8 @@
 			$flag = false;
 			echo "Please enter valid email address";
 		} else {
-			$sql_query = mysql_query("SELECT email FROM Users u WHERE u.Email='$uname'")
+			//$query = "SELECT email FROM Users u where u.Email='$uname'";
+			$sql_query = mysql_query("SELECT email FROM Users u where u.Email='$uname'");
 			$num_rows = mysql_num_rows($sql_query);
 			
 			// if there are any other users with the same email, error out
@@ -57,7 +58,7 @@
 		}
 
 		if ('$pass' != '$pass2') {
-			echo "Passwords do not match"
+			echo "Passwords do not match";
 			// *** NEED TO IMPLEMENT, Passwords dont match, error out ***
 		}
 
