@@ -35,36 +35,24 @@
 		$pass2 = trim($_POST['pass2']);
 		$pass2 = strip_tags($pass2);
 		$pass2 = htmlspecialchars($pass2);
-
-		echo $name;
-		echo $uname;
-		echo $pass;
-		echo $pass2;
+		 
 
 		if (empty($uname) or !filter_var($uname,FILTER_VALIDATE_EMAIL) ) {
 			$flag = false;
 			echo "Please enter valid email address";
 		} else {
 			//$query = "SELECT email FROM Users u where u.Email='$uname'";
-			$sql_query = $conn->query("SELECT Email FROM Users u where u.Email='$uname'");
-			if (!$sql_query) {
-				$flaf = false;
-				echo "Email already in user";
-			}
-			//$num_rows = $sql_query->num_rows($sql_query);
+			$sql_query = $conn->query("SELECT Email FROM User u where u.Email='$uname'");
+
+			$num_rows = $sql_query->num_rows;
 			
 			// if there are any other users with the same email, error out
-			//if ($num_rows != 0) {
-			//	$flag = false;
-			//	echo "Email already in use";
-				// *** NEED TO IMPLEMENT, EMAIL ALREADY IN USE ***
-			//}
+			if ($num_rows != 0) {
+				$flag = false;
+				echo "Email already in use";
+			}
+
 		}		
-		
-		echo $name;
-		echo $uname;
-		echo $pass;
-		echo $pass2;
 		
 		// if any of input are empty or passwords don't match, error out
 		if (empty($name)) {
@@ -91,17 +79,17 @@
 		// if no errors, input new user
 		if ($flag) {
 		
-			$sql_query = $conn->query("INSERT INTO Users(Email, Pass, Name) VALUES('$uname', '$pass', '$name')"); 
+			$sql_query = $conn->query("INSERT INTO User(Email, Pass, Name) VALUES('$uname', '$pass', '$name')"); 
 			
 			if ($sql_query) {
-				echo "Login successful, please login now";
+				echo "Registration successful, please login now";
 				// reset variables
 				unset($name);
 				unset($email);
 				unset($pass);
 				header('Location: home.php');
 			} else {
-				echo "Login not sucessful, please try again";
+				echo "Registration not sucessful, please try again";
 				// *** NEED TO IMPLEMENT, RETURN TO LOGIN PAGE ***	
 			}
 

@@ -40,10 +40,11 @@
 		if ($flag) {
 
 			// fetch password and name from mysql Database where Email == entered email: uname
-			$sql_query = $conn->query("SELECT Pass, Name FROM Users u WHERE u.Email='$uname' AND u.Pass='$pass'");
+			$query = "SELECT Pass, Name FROM User u WHERE u.Email='$uname' AND u.Pass='$pass'";
+			$sql_query = $conn->query($query);
 			if ($sql_query) {
-				$row = $sql_query->fetch_array($sql_query);
-				$num_rows = $sql_query->num_rows($sql_query);
+				$row = $sql_query->fetch_array(MYSQLI_NUM);
+				$num_rows = $sql_query->num_rows;
 			
 				// if only one user in Database with provided information and passwords match, login valid
 				if ($num_rows != 1) { 
@@ -54,7 +55,6 @@
 			} else echo "Invalid Credentials"; //I believe this is running right, need to check with valid credentials
 		}
 
-		//header('Location: home.php');
 		
 	//}
 ?>
