@@ -57,7 +57,7 @@
 			echo "Please enter Retype Password";
 		}
 
-		if ('$pass' != '$pass2') {
+		if ($pass != $pass2) {
 			echo "Passwords do not match";
 			// *** NEED TO IMPLEMENT, Passwords dont match, error out ***
 		}
