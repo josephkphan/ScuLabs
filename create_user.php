@@ -47,14 +47,18 @@
 		} else {
 			//$query = "SELECT email FROM Users u where u.Email='$uname'";
 			$sql_query = $conn->query("SELECT Email FROM Users u where u.Email='$uname'");
-			$num_rows = $sql_query->num_rows($sql_query);
+			if (!$sql_query) {
+				$flaf = false;
+				echo "Email already in user";
+			}
+			//$num_rows = $sql_query->num_rows($sql_query);
 			
 			// if there are any other users with the same email, error out
-			if ($num_rows != 0) {
-				$flag = false;
-				echo "Email already in use";
+			//if ($num_rows != 0) {
+			//	$flag = false;
+			//	echo "Email already in use";
 				// *** NEED TO IMPLEMENT, EMAIL ALREADY IN USE ***
-			}
+			//}
 		}		
 		
 		echo $name;
@@ -95,6 +99,7 @@
 				unset($name);
 				unset($email);
 				unset($pass);
+				header('Location: home.php');
 			} else {
 				echo "Login not sucessful, please try again";
 				// *** NEED TO IMPLEMENT, RETURN TO LOGIN PAGE ***	
