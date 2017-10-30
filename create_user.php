@@ -30,8 +30,8 @@
 			echo "Please enter valid email address";
 		} else {
 			//$query = "SELECT email FROM Users u where u.Email='$uname'";
-			$sql_query = mysql_query("SELECT email FROM Users u where u.Email='$uname'");
-			$num_rows = mysql_num_rows($sql_query);
+			$sql_query = mysqli_query("SELECT email FROM Users u where u.Email='$uname'");
+			$num_rows = mysqli_num_rows($sql_query);
 			
 			// if there are any other users with the same email, error out
 			if ($num_rows != 0) {
@@ -65,7 +65,7 @@
 
 		// if no errors, input new user
 		if ($flag) {
-			$sql_query = mysql_query("INSERT INTO Users(Email, Pass, Name) VALUES('$uname', '$pass', '$name')"); 
+			$sql_query = mysqli_query("INSERT INTO Users(Email, Pass, Name) VALUES('$uname', '$pass', '$name')"); 
 			
 			if ($sql_query) {
 				echo "Login successful, please login now";
