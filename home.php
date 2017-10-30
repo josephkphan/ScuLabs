@@ -167,6 +167,8 @@ $db_name = "sdb_jphan1";
   <p id="available_ta_text" ></p>
   <h4>Email List:</h4>
   <p id="available_ta_email_list" ></p>
+  <h4>All TAs:</h4>
+  <p id="all_ta" ></p>
 
 
 </body>
@@ -188,6 +190,19 @@ function myFunction(lab_name) {
   console.log(ar);
    document.getElementById("available_ta_text").innerHTML = string;
    document.getElementById("available_ta_email_list").innerHTML = email_list;
+}
+
+function all_ta_list() {
+  var ar = <?php echo json_encode($table) ?>;
+  var email_list = ''
+  var string = ''
+  for (var i in ar){
+    if (ar[i]['Type'] == 'TA'){
+      string = string +  ar[i]['Name']
+      string += '<br>'
+    }
+  }
+   document.getElementById("all_ta").innerHTML = string;
 }
 
 document.getElementById("MonLab1").addEventListener("click", function(){
@@ -261,7 +276,7 @@ var urlParams;
     console.log(urlParams)
     document.getElementById("home_href").href = "home.php?user=" + urlParams['user']
     document.getElementById("avail_href").href = "availability.php?user="+ urlParams['user']
-
+    all_ta_list();
 
 })();
 
