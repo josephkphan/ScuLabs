@@ -1,5 +1,9 @@
 
   <?php
+  if (!isset($_COOKIE["TA_SESSION"])){
+    header('Location: login.php');
+  }
+  
   $servername = "dbserver.engr.scu.edu";
   $username = "jphan1";
   $password = "sandbox";
