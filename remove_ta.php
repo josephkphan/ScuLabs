@@ -1,6 +1,6 @@
 
   <?php
-  if (!isset($_COOKIE["TA_SESSION"])){
+  if (!isset($_COOKIE["ADMIN_SESSION"])){
     header('Location: login.php');
   }
 

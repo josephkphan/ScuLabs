@@ -1,5 +1,5 @@
 <?php
-if (!isset($_COOKIE["TA_SESSION"])){
+if (!isset($_COOKIE["MY_SESSION"])){
   header('Location: login.php');
 }
 
@@ -190,10 +190,10 @@ function myFunction(lab_name) {
   var current_color = document.getElementById(lab_name).style.backgroundColor
   if (current_color === "rgb(139, 218, 97)"){
     document.getElementById(lab_name).style.backgroundColor = "rgb(201, 81, 55)"
-    saveData(urlParams['user'],lab_name,'Not Available');
+    saveData(userEmail,lab_name,'Not Available');
   }else{
     document.getElementById(lab_name).style.backgroundColor = "rgb(139, 218, 97)"
-    saveData(urlParams['user'],lab_name,'Available');
+    saveData(userEmail,lab_name,'Available');
   }
 }
 
@@ -255,10 +255,26 @@ document.getElementById("FriLab3").addEventListener("click", function(){
 </script>
 
 <script>
-var urlParams;
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+var userEmail;
+var cookieParams;
 (window.onpopstate = function () {
-
-
+  userEmail = getCookie("MY_SESSION")
+  console.log("TEST:",userEmail)
     var match,
         pl     = /\+/g,
         search = /([^&=]+)=?([^&]*)/g,
@@ -270,15 +286,15 @@ var urlParams;
        urlParams[decode(match[1])] = decode(match[2]);
 
     console.log(urlParams)
-    document.getElementById("home_href").href = "home.php?user=" + urlParams['user']
-    document.getElementById("avail_href").href = "availability.php?user="+ urlParams['user']
+    document.getElementById("home_href").href = "home.php"
+    document.getElementById("avail_href").href = "availability.php"
 
     var ar = <?php echo json_encode($table) ?>;
     console.log(ar)
     var counter = 0;
     for (var i in ar){
-      console.log(ar[counter]['Email'],urlParams['user'] )
-      if (ar[counter]['Email'] == urlParams['user'] && ar[counter]['Type'] == 'TA'){
+      console.log(ar[counter]['Email'],userEmail )
+      if (ar[counter]['Email'] == userEmail && ar[counter]['Type'] == 'TA'){
         var current_user = ar[counter];
         var lab_sections = ['MonLab1', 'MonLab2', 'MonLab3', 'TueLab1', 'TueLab2', 'TueLab3', 'WedLab1', 'WedLab2', 'WedLab3', 'ThuLab1', 'ThuLab2', 'ThuLab3', 'FriLab1', 'FriLab2', 'FriLab3']
         lab_sections.forEach(function(lab_name) {

@@ -63,10 +63,11 @@
 					}else{
 						$username = $row["email"];
 						$type = $row["type"];
-						setcookie("TA_SESSION",3000,time()+(86400));
+							setcookie("MY_SESSION",$username,time()+(86400));
 						if ($type == "TA"){
-							header("Location: home.php?user=" . $username); //TODO IF TA THEN GO TO HOME ELSE GO TO ADMIN VIEW
+							header("Location: home.php"); //TODO IF TA THEN GO TO HOME ELSE GO TO ADMIN VIEW
 						}else{
+							setcookie("ADMIN_SESSION",$username,time()+(86400));
 							header("Location: admin.php");
 						}
 					}

@@ -1,7 +1,7 @@
 <?php
 
 
-if (!isset($_COOKIE["TA_SESSION"])){
+if (!isset($_COOKIE["MY_SESSION"])){
   header('Location: login.php');
 }
 
@@ -267,8 +267,10 @@ document.getElementById("FriLab3").addEventListener("click", function(){
 </script>
 
 <script>
+
 var urlParams;
 (window.onpopstate = function () {
+
     var match,
         pl     = /\+/g,
         search = /([^&=]+)=?([^&]*)/g,
@@ -280,8 +282,8 @@ var urlParams;
        urlParams[decode(match[1])] = decode(match[2]);
 
     console.log(urlParams)
-    document.getElementById("home_href").href = "home.php?user=" + urlParams['user']
-    document.getElementById("avail_href").href = "availability.php?user="+ urlParams['user']
+    document.getElementById("home_href").href = "home.php"
+    document.getElementById("avail_href").href = "availability.php"
     all_ta_list();
 
 })();

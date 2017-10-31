@@ -1,5 +1,12 @@
+<?php
+if (!isset($_COOKIE["ADMIN_SESSION"])){
+  header('Location: login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html >
+
 <head>
     <meta charset="UTF-8">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

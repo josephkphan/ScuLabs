@@ -41,3 +41,6 @@ CREATE TABLE EnabledUser (
 
 INSERT INTO  EnabledUser(Email)
 VALUES ('jphan123@scu.edu');
+
+INSERT INTO  EnabledUser(Email)
+VALUES ('admin');

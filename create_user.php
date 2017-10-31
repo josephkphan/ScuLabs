@@ -84,8 +84,8 @@
 			if ($sql_query) {
 				echo "Registration successful, please login now";
 				// reset variables
-				
-				header('Location: home.php?user='.$uname);
+
+				header('Location: home.php?');
 			} else {
 				echo "Registration not sucessful, please try again";
 				// *** NEED TO IMPLEMENT, RETURN TO LOGIN PAGE ***
