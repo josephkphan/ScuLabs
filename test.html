@@ -1,145 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Scu Labs</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap core CSS     -->
-    <link href="bootstrap.min.css" rel="stylesheet" />
+<html >
+<head>
+    <meta charset="UTF-8">
 
-  </head>
-    <head>
-        <title>Timetable</title>
-        <style type="text/css">
 
-        table
-        {
-          margin-left: 5%;
-          clear: boht
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+    <link rel="stylesheet" href="css/login.css">
+
+    <style>
+        body {
+            color: #666666;
+            font-family: 'RobotoDraft', 'Roboto', sans-serif;
+            font-size: 14px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        body
-        {
-            font-family: arial;
-        }
-
-        th,td
-        {
-            margin: 0;
+        /* Pen Title */
+        .pen-title {
+            padding: 50px 0;
             text-align: center;
-            border-collapse: collapse;
-            outline: 1px solid #e3e3e3;
+            letter-spacing: 2px;
+        }
+        .pen-title h1 {
+            margin: 0 0 20px;
+            font-size: 48px;
+            font-weight: 300;
+        }
+        .pen-title span {
+            font-size: 12px;
         }
 
-        td
-        {
-            padding: 10px 10px;
+        .pen-title span a {
+            color: #d05354;
+            font-weight: 600;
+            text-decoration: none;
         }
 
-        th
-        {
-            background: #9a2035;
-            color: white;
-            padding: 30px 0px 30px 0px;
+        /* Form Module */
+        .form-module {
+            position: relative;
+            background: #ffffff;
+            max-width: 320px;
+            width: 100%;
+            border-top: 5px solid #d05354;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
         }
 
-        td:hover
-        {
+        .form-module .form {
+            display: none;
+            padding: 40px;
+        }
+        .form-module .form:nth-child(2) {
+            display: block;
+        }
+        .form-module h2 {
+            margin: 0 0 20px;
+            color: #d05354;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1;
+        }
+        .form-module input {
+            outline: none;
+            display: block;
+            width: 100%;
+            border: 1px solid #d9d9d9;
+            margin: 0 0 20px;
+            padding: 10px 15px;
+            box-sizing: border-box;
+            font-wieght: 400;
+            -webkit-transition: 0.3s ease;
+            transition: 0.3s ease;
+        }
+        .form-module input:focus {
+            border: 1px solid #d05354;
+            color: #333333;
+        }
+        .form-module button {
             cursor: pointer;
-            background: #d1465a;
-            color: white;
+            background: #d05354;
+            width: 100%;
+            border: 0;
+            padding: 10px 15px;
+            color: #ffffff;
+            -webkit-transition: 0.3s ease;
+            transition: 0.3s ease;
         }
+        .form-module button:hover {
+            background: #d05354;
+        }
+        .form-module .cta {
+            background: #f2f2f2;
+            width: 100%;
+            padding: 15px 40px;
+            box-sizing: border-box;
+            color: #666666;
+            font-size: 12px;
+            text-align: center;
+        }
+        .form-module .cta a {
+            color: #333333;
+            text-decoration: none;
+        }
+        body { padding: 2em; }
 
-        ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-          background-color: #333;
-          }
 
-          li {
-              float: left;
-          }
+    </style>
 
-          li a {
-              display: block;
-              color: white;
-              text-align: center;
-              padding: 14px 16px;
-              text-decoration: none;
-          }
+</head>
 
-          li a:hover {
-              background-color: #111;
-          }
-        </style>
+<body>
 
-    </head>
-    <h3>Scu Labs : TA Contact Sheet</h3>
-    <ul>
-      <li><a href="news.asp">Other's Availability</a></li>
-      <li><a href="contact.asp">My Availability</a></li>
-      <li><a href="about.asp">Logout</a></li>
-    </ul>
-    <body>
-      <br>
-        <table width="90%" align="center" >
-        <div id="head_nav">
-        <tr>
-            <th>Time</th>
-            <th>Mon</th>
-            <th>Tues</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
-        </tr>
+<!-- Form Mixin-->
+<!-- Input Mixin-->
+<!-- Button Mixin-->
+<!-- Pen Title-->
+<div class="pen-title">
+    <h1>Admin Page</h1><span>Add / Remove TAs</span>
+</div>
+<!-- Form Module-->
+<div class="module form-module">
+
+    <div class="form"> </div>
+    <!--DON'T DELETE THE DIV ABOVE. IS CRITICAL TO THIS PAGE-->
+    <div class="form">
+        <h2>Add TA</h2>
+        <form action="check_credentials.php" method="post">
+            <input name="uname" type="text" placeholder="Scu Username"/>
+            <button class="button" type="submit">Add TA</button>
+        </form>
+        <br>
+        <h2>Remove TA</h2>
+        <form action="check_credentials.php" method="post">
+            <input name="uname" type="text" placeholder="Scu Username"/>
+            <button class="button" type="submit">Remove TA</button>
+        </form>
     </div>
 
-        <tr>
-            <th>09:15 - 12:00</th>
-                <td onclick="myFunction()">Monday<br>Morning Lab</td>
-                <td onclick="myFunction()">Tuesday<br>Morning Lab</td>
-                <td onclick="myFunction()">Wednesday<br>Morning Lab</td>
-                <td onclick="myFunction()">Thursday<br>Morning Lab</td>
-                <td onclick="myFunction()">Friday<br>Morning Lab</td>
-                <td onclick="myFunction()">Saturday<br>Morning Lab</td>
-            </div>
-        </tr>
-
-        <tr>
-            <th>02:15 - 5:00</td>
-                <td onclick="myFunction()">Monday<br>Afternoon Lab</td>
-                <td onclick="myFunction()">Tuesday<br>Afternoon Lab</td>
-                <td onclick="myFunction()">Wednesday<br>Afternoon Lab</td>
-                <td onclick="myFunction()">Thursday<br>Afternoon Lab</td>
-                <td onclick="myFunction()">Friday<br>Afternoon Lab</td>
-                <td></td>
-            </div>
-        </tr>
-
-        <tr>
-            <th>05:15 - 08:00</td>
-
-                <td onclick="myFunction()">Monday<br>Night Lab</td>
-                <td onclick="myFunction()">Tuesday<br>Night Lab</td>
-                <td onclick="myFunction()">Wednesday<br>Night Lab</td>
-                <td onclick="myFunction()">Thursday<br>Night Lab</td>
-                <td onclick="myFunction()">Friday<br>Night Lab</td>
-                <td></td>
-
-            </div>
-        </tr>
-
-    </table>
+</div>
 
 
-  </body>
-
-<script>
-function myFunction() {
-    alert("Available TAs: \n Carl Maggio -- cmaggio@scu.edu");
-}
-</script>
+</body>
 </html>

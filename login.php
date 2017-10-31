@@ -139,7 +139,6 @@
         </form>
         <br>
     </div>
-    <div class="cta"><a href="register.php">Forgot your password?</a></div>
     <div class="cta"><a href="register.php">Register Here</a></div>
 
 </div>
