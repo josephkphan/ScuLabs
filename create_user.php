@@ -85,7 +85,7 @@
 				echo "Registration successful, please login now";
 				// reset variables
 
-				header('Location: home.php?');
+				header('Location: login.php?');
 			} else {
 				echo "Registration not sucessful, please try again";
 				// *** NEED TO IMPLEMENT, RETURN TO LOGIN PAGE ***
