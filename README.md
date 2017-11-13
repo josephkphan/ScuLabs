@@ -22,8 +22,13 @@ https://docs.google.com/document/d/1A30oIRoH-Z7dPshtrAsQaG2797Zi0w4CIedi6BjtSyc/
 
 
 ## Screenshot
+#### Login Page
 ![alt text](https://raw.githubusercontent.com/josephkphan/ScuLabs/master/images/screenshot_login.png)
+#### Registration Page
 ![alt text](https://raw.githubusercontent.com/josephkphan/ScuLabs/master/images/screenshot_register.png)
+#### TA Home Page
 ![alt text](https://raw.githubusercontent.com/josephkphan/ScuLabs/master/images/screenshot_home.png)
+#### TA Availability Page
 ![alt text](https://raw.githubusercontent.com/josephkphan/ScuLabs/master/images/screenshot_avail.png)
+#### Admin Page
 ![alt text](https://raw.githubusercontent.com/josephkphan/ScuLabs/master/images/screenshot_admin.png)
