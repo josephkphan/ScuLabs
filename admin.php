@@ -161,7 +161,7 @@ function remove_ta(email){
         url: "remove_ta.php",
         data: { email:email },
         success:function() {
-          alert("User Successfully Removed");
+          alert("User Successfully Removed")
         }
        });
   }
@@ -172,7 +172,7 @@ function remove_ta(email){
           url: "add_ta.php",
           data: { email:email },
           success:function() {
-            alert("User Successfully Added");
+            alert("User Successfully Added")
           }
          });
     }
