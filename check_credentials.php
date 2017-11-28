@@ -33,7 +33,7 @@
 
 		if (empty($pass)){
 			$flag = false;
-			echo "Please enter password. ";
+			echo "<script>alert('Please enter password');window.location.href='login.php';</script>";
 		}
 
 		// if no error inputting information, continue
@@ -54,12 +54,11 @@
 
 				// if only one user in Database with provided information and passwords match, login valid
 				if ($num_rows != 1) {
-					echo "Invalid Login Information";
-					//invalid user, error out *** NEED TO IMPLEMENT ***
+					echo "<script>alert('Invalid Login Information');window.location.href='login.php';</script>";
 				} else{
 
 					if($num_rows_enabled != 1 ){
-						echo "User Not Enabled Yet. Contact Admin";
+						echo "<script>alert('User Not Enabled Yet. Contact Admin.');window.location.href='login.php';</script>";
 					}else{
 						$username = $row["email"];
 						$type = $row["type"];
@@ -73,7 +72,7 @@
 					}
 				}
 
-			} else echo "Invalid Credentials"; //I believe this is running right, need to check with valid credentials
+			} else echo "<script>alert('Invalid Credentials');window.location.href='login.php';</script>";
 		}
 
 

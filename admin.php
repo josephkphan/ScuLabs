@@ -160,8 +160,8 @@ function remove_ta(email){
         type: "POST",
         url: "remove_ta.php",
         data: { email:email },
-        success:function( msg ) {
-          console.log(msg)
+        success:function() {
+          alert("User Successfully Removed")
         }
        });
   }
@@ -171,8 +171,8 @@ function remove_ta(email){
           type: "POST",
           url: "add_ta.php",
           data: { email:email },
-          success:function( msg ) {
-            console.log(msg)
+          success:function() {
+            alert("User Successfully Added")
           }
          });
     }
