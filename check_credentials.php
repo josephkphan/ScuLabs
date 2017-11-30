@@ -38,9 +38,9 @@
 
 		// if no error inputting information, continue
 		if ($flag) {
-
+			$hash_pass = crypt($pass, 'mycrazysalt');
 			// fetch password and name from mysql Database where Email == entered email: uname
-			$query = "SELECT Email as email, Type as type FROM User u WHERE u.Email='$uname' AND u.Pass='$pass'";
+			$query = "SELECT Email as email, Type as type FROM User u WHERE u.Email='$uname' AND u.Pass='$hash_pass'";
 			$query_enabled =  "SELECT Email as email FROM EnabledUser u WHERE u.Email='$uname' ";
 			$sql_query = $conn->query($query);
 			$sql_query_enabled = $conn->query($query_enabled);

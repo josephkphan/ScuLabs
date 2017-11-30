@@ -1,3 +1,11 @@
+<?php
+if (isset($_COOKIE["ADMIN_SESSION"])){
+    header('Location: admin.php');
+}else if (isset($_COOKIE["MY_SESSION"])){
+    header('Location: home.php');
+}
+?>
+
 <!DOCTYPE html>
 <html >
 <head>

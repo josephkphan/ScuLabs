@@ -78,8 +78,8 @@
 
 		// if no errors, input new user
 		if ($flag) {
-
-			$sql_query = $conn->query("INSERT INTO User(Email, Pass, Name, Type, MonLab1, MonLab2, MonLab3, TueLab1, TueLab2, TueLab3, WedLab1, WedLab2, WedLab3, ThuLab1, ThuLab2, ThuLab3, FriLab1, FriLab2, FriLab3) VALUES('$uname', '$pass', '$name', 'TA', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available')");
+			$hash_pass = crypt($pass, 'mycrazysalt');
+			$sql_query = $conn->query("INSERT INTO User(Email, Pass, Name, Type, MonLab1, MonLab2, MonLab3, TueLab1, TueLab2, TueLab3, WedLab1, WedLab2, WedLab3, ThuLab1, ThuLab2, ThuLab3, FriLab1, FriLab2, FriLab3) VALUES('$uname', '$hash_pass', '$name', 'TA', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available', 'Available')");
 
 			if ($sql_query) {
 				echo "<script>alert('Registration successful, please contact admin to validate');window.location.href='login.php';</script>";

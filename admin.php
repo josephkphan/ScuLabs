@@ -120,6 +120,10 @@ if (!isset($_COOKIE["ADMIN_SESSION"])){
 
 </head>
 
+<ul>
+    <li><a id="logout_href">Logout</a></li>
+  </ul>
+
 <body>
 
 <!-- Form Mixin-->
@@ -161,7 +165,9 @@ function remove_ta(email){
         url: "remove_ta.php",
         data: { email:email },
         success:function() {
-          alert("User Successfully Removed")
+            if( document.getElementById("add_ta_param").value!=""){
+                    alert("User Successfully Removed")
+                }
         }
        });
   }
@@ -172,10 +178,27 @@ function remove_ta(email){
           url: "add_ta.php",
           data: { email:email },
           success:function() {
-            alert("User Successfully Added")
+            if( document.getElementById("remove_ta_param").value!=""){
+                alert("User Successfully Removed")
+                }
+            
           }
          });
     }
 </script>
+
+<script>
+function delete_cookie( name ) {
+  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+document.getElementById("logout_href").addEventListener("click", function(){
+  console.log("CLEAR COOKIES");
+  delete_cookie("MY_SESSION");
+  delete_cookie("ADMIN_SESSION");
+  window.location.replace("login.php");
+});
+</script>
+
 </body>
 </html>

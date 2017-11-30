@@ -110,11 +110,13 @@ $db_name = "sdb_jphan1";
 
   ?>
 
+
+
   <h3>Scu Labs : TA Contact Sheet</h3>
   <ul>
     <li><a id="home_href" href="home.php?user=" style="color: #19C5D3">Other's Availability</a></li>
     <li><a id="avail_href" href="availability.php?user=">My Availability</a></li>
-    <li><a href="login.php">Logout</a></li>
+    <li><a id="logout_href">Logout</a></li>
   </ul>
 
   <body>
@@ -290,7 +292,18 @@ var urlParams;
 
 </script>
 
+<script>
+function delete_cookie( name ) {
+  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
 
+document.getElementById("logout_href").addEventListener("click", function(){
+  console.log("CLEAR COOKIES");
+  delete_cookie("MY_SESSION");
+  delete_cookie("ADMIN_SESSION");
+  window.location.replace("login.php");
+});
+</script>
 
 
 </html>
